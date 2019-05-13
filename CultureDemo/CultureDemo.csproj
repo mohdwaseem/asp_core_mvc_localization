@@ -6,13 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Resources\SharedResource.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Remove="Resources\Resources.SharedResource.fr.resx" />
-    <EmbeddedResource Remove="Resources\SharedResource.fr.resx" />
-    <EmbeddedResource Remove="Resources\StartUp.fr.resx" />
     <EmbeddedResource Remove="Resources\ViewModels\RegisterViewModel.ar.resx" />
   </ItemGroup>
 
