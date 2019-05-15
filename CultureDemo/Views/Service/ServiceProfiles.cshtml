@@ -1,0 +1,31 @@
+﻿@model IEnumerable<CultureDemo.ViewModels.ServiceProfileVM>
+@{
+    ViewData["Title"] = "ServiceProfiles";
+}
+
+<h1>ServiceProfiles</h1>
+
+<table class="table table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>Title</th>
+            <th>Service</th>
+            <th>Authority</th>
+            <th>Bank</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+     <tbody>
+         @foreach (var item in Model)
+         {
+             <tr>
+                 <td>@item.Title</td>
+                 <td>@item.Service</td>
+                 <td>@item.Authority</td>
+                 <td>@item.Bank</td>
+                 <td> <a class="btn btn-info"  asp-action="AddServiceProfile" asp-route-csid="@item.ContracServiceId">Create</a> </td>
+             </tr>
+         }
+     </tbody>
+</table>
+
