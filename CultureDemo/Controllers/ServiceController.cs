@@ -34,10 +34,20 @@ namespace CultureDemo.Controllers
             var banks = await _cultureDemoContext.Bank.ToListAsync();
             var service = await _cultureDemoContext.Service.ToListAsync();
             var serviceProfileVM = new ServiceProfileVM();
-            serviceProfileVM.AuthorityList = new SelectList(authorities, "AuthorityId", "AuthorityName",contractService.AuthorityId);
-            serviceProfileVM.ServiceList = new SelectList(service, "ServiceId", "ServiceName",contractService.ServiceId);
-            serviceProfileVM.BankList = new SelectList(banks, "BankId", "BankName",contractService.BankId);
-            serviceProfileVM.Title = contractService.Title;
+            if (contractService!=null)
+            {
+                serviceProfileVM.AuthorityList = new SelectList(authorities, "AuthorityId", "AuthorityName", contractService.AuthorityId);
+                serviceProfileVM.ServiceList = new SelectList(service, "ServiceId", "ServiceName", contractService.ServiceId);
+                serviceProfileVM.BankList = new SelectList(banks, "BankId", "BankName", contractService.BankId);
+                serviceProfileVM.Title = contractService.Title;
+            }
+            else
+            {
+                serviceProfileVM.AuthorityList = new SelectList(authorities, "AuthorityId", "AuthorityName");
+                serviceProfileVM.ServiceList = new SelectList(service, "ServiceId", "ServiceName");
+                serviceProfileVM.BankList = new SelectList(banks, "BankId", "BankName");
+            }
+            
 
             
             return View(serviceProfileVM);

@@ -19,7 +19,9 @@
     <div class="form-group">
         <label asp-for="Service" class="col-md-2 control-label"></label>
         <div class="col-md-10">
-            <select asp-for="ServiceId" class="form-control" asp-items="@Model.ServiceList"></select>
+            <select asp-for="ServiceId" class="form-control" asp-items="@Model.ServiceList">
+                <option value="">Select Service</option>
+            </select>
 
         </div>
     </div>
